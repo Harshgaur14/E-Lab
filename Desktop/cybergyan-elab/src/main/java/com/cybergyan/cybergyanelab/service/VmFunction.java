@@ -20,9 +20,9 @@ public class VmFunction {
 	{
 		try {
 		HttpRequest request = HttpRequest.newBuilder()
-			    //.uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/287447eb-cbc5-49c4-a1e3-25b5086de66d/clone"))
-				.uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/98f9da5c-ba3c-4664-a93c-d5eb2659ee83/clone"))
-				.header("Content-Type", "application/json")
+			    //.uri(URI.create(""))
+				.uri(URI.create(""))
+				.header("")
 			    .header("Authorization", "Basic "+auth+"")
 			    .method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"override_spec\": {\n    \"name\": \""+string+"\"\n   }\n   }"))
 			    .build();
@@ -39,8 +39,8 @@ public class VmFunction {
 	{
 		try {
 		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/287447eb-cbc5-49c4-a1e3-25b5086de66d/clone"))
-				//.uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/bdf97ad2-ddb5-41b1-aa2a-d988fb20b07d/clone"))
+				.uri(URI.create(""))
+				//.uri(URI.create(""))
 			    .header("Content-Type", "application/json")
 			    .header("Authorization", "Basic "+auth+"")
 			    .method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"override_spec\": {\n    \"name\": \""+string+"\"\n   }\n   }"))
@@ -62,10 +62,10 @@ public class VmFunction {
 			System.out.println(string);
 			System.out.println(auth);
 		HttpRequest request = HttpRequest.newBuilder()
-			    .uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/list"))
+			    .uri(URI.create(""))
 			    .header("Content-Type", "application/json")
 			    .header("Authorization", "Basic "+auth+"")
-			    .method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"kind\": \"vm\",\n  \"offset\": 0,\n  \"length\": 123,\n  \"filter\": \"vm_name=="+string+"\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"ASCENDING\"\n}"))
+			    .method("POST", HttpRequest.BodyPublishers.ofString("{"))
 			    .build();
 			HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 			
@@ -85,10 +85,10 @@ public class VmFunction {
 		String ipaddress=null;
 		try {
 		HttpRequest request = HttpRequest.newBuilder()
-			    .uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/list"))
+			    .uri(URI.create(""))
 			    .header("Content-Type", "application/json")
 			    .header("Authorization", "Basic "+auth+"")
-			    .method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"kind\": \"vm\",\n  \"offset\": 0,\n  \"length\": 123,\n  \"filter\": \"vm_name=="+string+"\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"ASCENDING\"\n}"))
+			    .method("POST", HttpRequest.BodyPublishers.ofString(""))
 			    .build();
 			HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 			
@@ -108,10 +108,10 @@ public class VmFunction {
 		String vmnameshow=null;
 		try {
 		HttpRequest request = HttpRequest.newBuilder()
-			    .uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/list"))
+			    .uri(URI.create(""))
 			    .header("Content-Type", "application/json")
 			    .header("Authorization", "Basic "+auth+"")
-			    .method("POST", HttpRequest.BodyPublishers.ofString("{\n  \"kind\": \"vm\",\n  \"offset\": 0,\n  \"length\": 123,\n  \"filter\": \"vm_name=="+string+"\",\n  \"sort_order\": \"ASCENDING\",\n  \"sort_attribute\": \"ASCENDING\"\n}"))
+			    .method("POST", HttpRequest.BodyPublishers.ofString(""))
 			    .build();
 			HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -133,10 +133,10 @@ public class VmFunction {
 	{
 		try {
 		HttpRequest request = HttpRequest.newBuilder()
-			    .uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v0.8/vms/set_power_state/fanout"))
-			    .header("Content-Type", "application/json")
-			    .header("Authorization", "Basic YWRtaW46Q2RhY0AxMjMhQCM=")
-			    .method("POST", HttpRequest.BodyPublishers.ofString("[{\"generic_dto\":{\"transition\":\"on\",\"uuid\":\""+string+"\"},\"cluster_uuid\":\"0005a833-66d0-008c-62e3-08f1ea7d7714\"}]"))
+			    .uri(URI.create(""))
+			    .header("Content-Type", "")
+			    .header("Authorization", "")
+			    .method("POST", HttpRequest.BodyPublishers.ofString(""))
 			    .build();
 			HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 		
@@ -150,14 +150,14 @@ public class VmFunction {
 	{
 		try {
 		HttpRequest request = HttpRequest.newBuilder()
-		        .uri(URI.create("https://nmegh02.prd.dcservices.in/api/nutanix/v3/vms/"+vmuuid+""))
+		        .uri(URI.create(""))
 		        .header("Content-Type", "application/json")
-		        .header("Authorization", "Basic YWRtaW46Q2RhY0AxMjMhQCM=")
+		        .header("Authorization", "Basic ")
 		        .method("DELETE", HttpRequest.BodyPublishers.noBody())
 		        .build();
 		    HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 		    System.out.println(response.body());
-		    System.out.println("Deleted Vm with uuid "+vmuuid);
+		    System.out.println(" "+vmuuid);
 	
 		}catch(Exception ex) {
 			ex.printStackTrace();
