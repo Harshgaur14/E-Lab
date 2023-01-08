@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CyberGYAN</title>
+<link rel="stylesheet" href="" th:href="@{/css/mystyle2.css}" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+<body style="background-color: rgb(158, 191, 251);">
+  <div class=navcontainer>
+  <div class="img-fluid"><img 
+        style="width:90px;margin-left:30px;" src="" th:src="@{/images/cdac-wo-bg.png}" alt="">
+        <form th:action="@{/logout}" method="post" style="float:right;margin-top:25px;margin-right:10px">
+        <input   type="submit" class="btn btn-primary" value="Logout" />
+    </form>
+        </div>
+                  
+
+</div>
+<div class="lab-desc"  >
+          
+                    <h1 style="text-align:center; font-size:30px;font-family:Times New Roman;"><b>Welcome Students!</b></h1>
+        
+          
+<br>
+<div class="card1"  >
+         <div class="card text-center">
+ 
+             <div class="card-header" style="background-color: #0953a8;">
+                 <h1 style="font-family:Times New Roman ;color:white"> <b>LAB DESCRIPTION</b></h1>
+             </div>
+             <div class="card-body" style="text-align:start ;background-color: white;" > 
+                 <p class="card-text" style="font-family:Times New Roman ; padding: 1px;font-size:20px;">This lab has been designed to explore various preliminary concepts and procedures, required to understand and work in the area of cyber security.</p>
+                 
+             <p class="card-text" style="font-family:Times New Roman ; padding: 1px;font-size:20px;">Each student will get two preconfigured virtual machines (one with Windows 10 Operating System and the other with Kali Linux Operating System).
+              These virtual machines will be available to the student accounts, till the completion of Units 1,2,3, and 4 or 2 months, whichever is earlier. </p>
+                     
+                 
+                 <h3 class="card-text" style="font-family:Times New Roman;font-size:20px;">Following are the credentials of the virtual machines provided to you:
+                 </h3>
+                 <ul>
+                     <li>For the Windows VM: </li>
+                     <ul>
+                         <li>Username : Windows10</li>
+                         <li>Password : qwerty</li>
+                     </ul>
+                     <li>For the Linux VM: </li>
+                     <ul>
+                         <li>Username : rooot</li>
+                         <li>Password : toor</li>
+                     </ul>
+                     <li> Note: Please read the instructions below carefully before attempting the lab exercises. </li>
+                     <li> You are advised to go through the User lab manuals and lab videos before attempting the lab exercises (Go to the course home page and click on Lab Videos and Lab Manuals Link).</li>
+                     <li> Click on the &#8220;Create Lab&#8221; button.</li>
+                     <li> Wait for one or two minutes, after clicking on the &#8220;Create Lab&#8221; button. This will create the required VMs for you. (Remember, this activity will be performed only the first time, you log in to your virtual lab).</li>
+                     <li> After the successful creation of the lab VMs, you will be shown VM Name and its IP Address. </li>
+                     <li> Opens the RDP application on your host machine (laptop or PC) to access the VMs with the given IP addresses and credentials. Start working on your lab exercises.</li>
+                     </ul>
+            <!--      <h3 style="font-family: 'Times New Roman', Times, serif;font-size:20px;">Make advantage of the structure of lab
+                     exercise to facilitate the maximum learning possible for our particular skill level and background
+                     enjoy.</h3>
+            -->
+                 
+                 
+                 
+ 				<div id="container-two">
+ 				
+                 <div class="container-linux">	
+ 			<div><img class="col"
+        style="width:50px;" src="" th:src="@{/images/linux.png}" alt=""><br> 
+				<label >VM Name is</label>
+ 				<a style="font-weight: bold;" th:text="${vmnameshowlinux}" ></a><br>
+ 				<label >VM IpAddress is</label>
+ 				<a  style="font-weight: bold;" th:text="${ipaddresslinux}" ></a></div>
+ 				<!-- <a th:href="@{/launchconsole}" class="btn btn-success">Launch RDP</a> -->
+ 					</div>
+ 				<div class="container-windows">	
+ 		<div><img class="col"
+        		style="width:50px;" src="" th:src="@{/images/windows.png}" alt=""><br> 
+				<label >VM Name is</label>
+ 				<a style="font-weight: bold;" th:text="${vmnameshowwin}" ></a><br>
+ 				<label >VM IpAddress is</label>
+ 				<a  style="font-weight: bold;" th:text="${ipaddresswin}" ></a></div>
+ 				
+ 				<!-- <a th:href="@{/launchconsole}" class="btn btn-success">Launch RDP</a>  -->
+ 				</div>
+                 
+                 
+                 
+                  </div>
+               
+                  <form action="" th:action="@{/deletevm}"  th:method="post">
+                 <div class="container-checkbox" style="float:right;padding-top:1%;">
+                 <input  type="checkbox"  id="tick" onchange="document.getElementById('terms').disabled = !this.checked;" />
+               		<button  type="submit" class="btn btn-primary" name="terms" id="terms"disabled onclick="checker()">Submit</button>
+               		<script>
+						function checker() {
+						  var result=confirm('Are you Sure ?');
+						  if(result==false){
+							  event.preventDefault();
+						  }
+						}
+</script>
+				  </div>
+				 </form>
+                  </div>
+
+</div>
+                  
+                    
+                 
+    </div>
+    </div>	
+    
+    
+    
+    <script src="" th:src="@{js/myjs.js}"></script>
+      <div class="class-footer">
+                 <p style="font-family:Times New Roman ;text-align: center;color:white;font-size:18px;">Copyright &copy; 2022</p>
+                 <p style="font-family:Times New Roman ;text-align: center;color:white;font-size:18px;">Designed and Developed by CDAC</p>
+   </div>
+    
+</body>
+</html>
